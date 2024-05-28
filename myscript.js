@@ -1,4 +1,4 @@
-var rollV, nameV, genderV, addressV, emailV;
+var rollV, nameV, genderV, addressV, emailV, lastnameV;
 
 function readFom() {
   rollV = document.getElementById("roll").value;
@@ -6,8 +6,9 @@ function readFom() {
   genderV = document.getElementById("gender").value;
   addressV = document.getElementById("address").value;
   emailV = document.getElementById("email").value;
+lastnameV = document.getElementById("lastname").value;
   Swal.fire("Data Read Succesfully!");
-  console.log(rollV, nameV, addressV, genderV);
+  console.log(rollV, nameV, addressV, genderV, lastname);
 }
 
 document.getElementById("insert").onclick = function () {
@@ -21,7 +22,8 @@ document.getElementById("insert").onclick = function () {
       name: nameV,
       gender: genderV,
       address: addressV,
-      email: emailV
+      email: emailV,
+      lastname: lastnameV
     });
     Swal.fire("Data Inserted Succesfully!");
   document.getElementById("roll").value = "";
@@ -29,6 +31,7 @@ document.getElementById("insert").onclick = function () {
   document.getElementById("gender").value = "";
   document.getElementById("address").value = "";
   document.getElementById("email").value = "";
+ document.getElementById("lastname").value = "";
 };
 
 document.getElementById("read").onclick = function () {
@@ -43,6 +46,7 @@ document.getElementById("read").onclick = function () {
       document.getElementById("gender").value = snap.val().gender;
       document.getElementById("address").value = snap.val().address;
       document.getElementById("email").value = snap.val().email;
+document.getElementById("lastname").value = snap.val().lastname;
     });
 };
 
@@ -57,7 +61,8 @@ document.getElementById("update").onclick = function () {
       name: nameV,
       gender: genderV,
       address: addressV,
-      email: emailV
+      email: emailV,
+      lastname: lastnameV
     });
     Swal.fire("Data Updated Succesfully!");
   document.getElementById("roll").value = "";
@@ -65,6 +70,7 @@ document.getElementById("update").onclick = function () {
   document.getElementById("gender").value = "";
   document.getElementById("address").value = "";
   document.getElementById("email").value = "";
+document.getElementById("lastname").value = "";
 };
 document.getElementById("delete").onclick = function () {
   readFom();
@@ -79,4 +85,5 @@ document.getElementById("delete").onclick = function () {
   document.getElementById("gender").value = "";
   document.getElementById("address").value = "";
   document.getElementById("email").value = "";
+document.getElementById("lastname").value = "";
 };
