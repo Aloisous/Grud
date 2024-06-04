@@ -18,7 +18,7 @@ document.getElementById("insert").onclick = function () {
     .database()
     .ref("student/" + uidV)
     .set({
-      rollNo: uidV,
+      uid: uidV,
       firstname: firstnameV,
       middlename: middlenameV,
       surname: surnameV,
@@ -41,7 +41,7 @@ document.getElementById("read").onclick = function () {
     .database()
     .ref("student/" + uidV)
     .on("value", function (snap) {
-      document.getElementById("uid").value = snap.val().rollNo;
+      document.getElementById("uid").value = snap.val().uid;
       document.getElementById("firstname").value = snap.val().firstname;
       document.getElementById("middlename").value = snap.val().middlename;
       document.getElementById("surname").value = snap.val().surname;
@@ -57,7 +57,7 @@ document.getElementById("update").onclick = function () {
     .database()
     .ref("student/" + uidV)
     .update({
-      //   rollNo: uidV,
+      //   uid: uidV,
       firstname: firstnameV,
       middlename: middlenameV,
       surname: surnameV,
