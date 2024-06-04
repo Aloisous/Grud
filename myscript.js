@@ -8,7 +8,7 @@ function readFom() {
   addressV = document.getElementById("address").value;
 emailaddressV = document.getElementById("emailaddress").value;
   Swal.fire("Data Read Succesfully!");
-  console.log(uidV, firstnameV, surnameV, middlenameV, emailaddress);
+  console.log(uidV, firstnameV, surnameV, middlenameV, emailaddressV, addressV);
 }
 
 document.getElementById("insert").onclick = function () {
