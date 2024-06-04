@@ -1,14 +1,14 @@
-var rollV, nameV, genderV, addressV, emailV, lastnameV;
+var uidV, firstnameV, middlenameV, surnameV, addressV, emailaddressV;
 
 function readFom() {
-  rollV = document.getElementById("roll").value;
-  nameV = document.getElementById("name").value;
-  genderV = document.getElementById("gender").value;
+  uidV = document.getElementById("uid").value;
+  firstnameV = document.getElementById("firstname").value;
+  middlenameV = document.getElementById("middlename").value;
+  surnameV = document.getElementById("surname").value;
   addressV = document.getElementById("address").value;
-  emailV = document.getElementById("email").value;
-lastnameV = document.getElementById("lastname").value;
+emailaddressV = document.getElementById("emailaddress").value;
   Swal.fire("Data Read Succesfully!");
-  console.log(rollV, nameV, addressV, genderV, lastname);
+  console.log(uidV, firstnameV, surnameV, middlenameV, emailaddress);
 }
 
 document.getElementById("insert").onclick = function () {
@@ -16,22 +16,22 @@ document.getElementById("insert").onclick = function () {
 
   firebase
     .database()
-    .ref("student/" + rollV)
+    .ref("student/" + uidV)
     .set({
-      rollNo: rollV,
-      name: nameV,
-      gender: genderV,
+      rollNo: uidV,
+      firstname: firstnameV,
+      middlename: middlenameV,
+      surname: surnameV,
       address: addressV,
-      email: emailV,
-      lastname: lastnameV
+      emailaddress: emailaddressV
     });
     Swal.fire("Data Inserted Succesfully!");
-  document.getElementById("roll").value = "";
-  document.getElementById("name").value = "";
-  document.getElementById("gender").value = "";
+  document.getElementById("uid").value = "";
+  document.getElementById("firstname").value = "";
+  document.getElementById("middlename").value = "";
+  document.getElementById("surname").value = "";
   document.getElementById("address").value = "";
-  document.getElementById("email").value = "";
- document.getElementById("lastname").value = "";
+ document.getElementById("emailaddress").value = "";
 };
 
 document.getElementById("read").onclick = function () {
@@ -39,14 +39,14 @@ document.getElementById("read").onclick = function () {
 
   firebase
     .database()
-    .ref("student/" + rollV)
+    .ref("student/" + uidV)
     .on("value", function (snap) {
-      document.getElementById("roll").value = snap.val().rollNo;
-      document.getElementById("name").value = snap.val().name;
-      document.getElementById("gender").value = snap.val().gender;
+      document.getElementById("uid").value = snap.val().rollNo;
+      document.getElementById("firstname").value = snap.val().firstname;
+      document.getElementById("middlename").value = snap.val().middlename;
+      document.getElementById("surname").value = snap.val().surname;
       document.getElementById("address").value = snap.val().address;
-      document.getElementById("email").value = snap.val().email;
-document.getElementById("lastname").value = snap.val().lastname;
+document.getElementById("emailaddress").value = snap.val().emailaddress;
     });
 };
 
@@ -55,35 +55,35 @@ document.getElementById("update").onclick = function () {
 
   firebase
     .database()
-    .ref("student/" + rollV)
+    .ref("student/" + uidV)
     .update({
-      //   rollNo: rollV,
-      name: nameV,
-      gender: genderV,
+      //   rollNo: uidV,
+      firstname: firstnameV,
+      middlename: middlenameV,
+      surname: surnameV,
       address: addressV,
-      email: emailV,
-      lastname: lastnameV
+      emailaddress: emailaddressV
     });
     Swal.fire("Data Updated Succesfully!");
-  document.getElementById("roll").value = "";
-  document.getElementById("name").value = "";
-  document.getElementById("gender").value = "";
+  document.getElementById("uid").value = "";
+  document.getElementById("firstname").value = "";
+  document.getElementById("middlename").value = "";
+  document.getElementById("surname").value = "";
   document.getElementById("address").value = "";
-  document.getElementById("email").value = "";
-document.getElementById("lastname").value = "";
+document.getElementById("emailaddress").value = "";
 };
 document.getElementById("delete").onclick = function () {
   readFom();
 
   firebase
     .database()
-    .ref("student/" + rollV)
+    .ref("student/" + uidV)
     .remove();
     Swal.fire("Data Deleted Succesfully!");
-  document.getElementById("roll").value = "";
-  document.getElementById("name").value = "";
-  document.getElementById("gender").value = "";
+  document.getElementById("uid").value = "";
+  document.getElementById("firstname").value = "";
+  document.getElementById("middlename").value = "";
+  document.getElementById("surname").value = "";
   document.getElementById("address").value = "";
-  document.getElementById("email").value = "";
-document.getElementById("lastname").value = "";
+document.getElementById("emailaddress").value = "";
 };
